@@ -18,6 +18,7 @@ public class DaoManagerImpl implements IDaoManager {
 	
 	 public void modifierPrixPlat(double prix,Plat p){
 		 p.setPrix(prix);
+		 em.merge(p);
 	 }
 
 
@@ -179,6 +180,7 @@ public class DaoManagerImpl implements IDaoManager {
 	public void calculerPrixPlat(float indice, Plat p) {
 		// TODO Auto-generated method stub
 		p.setPrix(p.getCoutRevient()*indice);
+		em.merge(p);
 	}
 
 }
