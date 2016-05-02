@@ -174,4 +174,11 @@ public class DaoManagerImpl implements IDaoManager {
 			return req.getResultList();
 	}
 
+
+	@Override
+	public void calculerPrixPlat(float indice, Plat p) {
+		// TODO Auto-generated method stub
+		p.setPrix(p.getCoutRevient()*indice);
+	}
+
 }

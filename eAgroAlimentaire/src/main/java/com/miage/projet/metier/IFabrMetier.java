@@ -5,7 +5,7 @@ import java.util.List;
 import com.miage.projet.entities.LotPlats;
 import com.miage.projet.entities.Plat;
 
-public interface IFabrMetier extends IAproviMetier{
+public interface IFabrMetier extends IFinancierMetier{
 	  public Long ajouterLotP(LotPlats lp);
 	   public void supprimerLotP(Long idPlat);
 	   public Long ajouterPlat(Plat p); 
