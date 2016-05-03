@@ -18,18 +18,20 @@ public class Fournisseur {
 	@NotEmpty
 	private String nomFour;  
   
-public String getNom() {
+public String getNomFour() {
 	return nomFour;
 }
-public void setNom(String nom) {
+public void setNomFour(String nom) {
 	this.nomFour = nom;
 }
-public long getId() {
+public long getIdFour() {
 	return idFour;
 }
-public void setId(int id) {
+public void setIdFour(long id) {
 	this.idFour = id;
 }
+
+
 public Fournisseur() {
 	super();
 	// TODO Auto-generated constructor stub

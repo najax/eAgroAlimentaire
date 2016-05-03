@@ -2,9 +2,40 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%> <head>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/style.css">
 </head>
-<div id="formAli" class="cadre">
-<f:form modelAttribute="Ali" action="saveAli" method="post" enctype="multipart/form-data">
+<div id="formFour" class="cadre">
+<f:form modelAttribute="lotAli" action="generate" method="post" >
 <table>
+<tr>
+<td>Select Fournisseur</td>
+<td><f:select path="fournisseur.idFour" items="${fournisseurs}" itemValue="idFour"
+ itemLabel="nomFour"></f:select>
+</tr>
+<tr>
+<td>Qte Aliments</td>
+<td><f:input path="qteLot"/></td>
+<td><f:errors path="qteLot"></f:errors> </td> 
+</tr>
+<tr>
+<c:if test="${lotAli.qteLot!=0}" >
+<c:forEach var="i" begin="1" end="${lotAli.qteLot}" step="1">
+    <p>Aliment n°<c:out value="${ i }" /> !</p>
+    
+    
+</c:forEach>
+
+
+Inconnu</c:if>
+</tr>
+<td><input type="submit" value="Poursuivre"></td>
+
+</table>
+</f:form>
+</div>
+<div id="formAli" class="cadre">
+<f:form modelAttribute="Ali" action="saveAli" method="post" >
+<table>
+
+
 <tr>
 <td>ID :</td>
 <td>${Ali.idAliment}<f:input type="hidden" path="idAliment"/></td> 

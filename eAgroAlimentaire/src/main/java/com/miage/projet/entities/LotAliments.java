@@ -15,6 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,12 +29,14 @@ public class LotAliments implements Serializable{
 	@GeneratedValue
 
 	private Long idLot;
-
+	 @Min(2)  @Max(10)
+	private int qteLot;
 	
-	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="idFour")
 	private Fournisseur Fournisseur;   
-
+	
 
 	  @OneToMany(mappedBy="LotAliments")
 	   private Set<Aliment> Aliments=new HashSet<Aliment>();
@@ -41,6 +46,13 @@ public class LotAliments implements Serializable{
 	}
 	public void setIdLot(Long idLot) {
 		this.idLot = idLot;
+	}
+
+	public int getQteLot() {
+		return qteLot;
+	}
+	public void setQteLot(int qteLot) {
+		this.qteLot = qteLot;
 	}
 	public Fournisseur getFournisseur() {
 		return Fournisseur;
@@ -63,5 +75,17 @@ public class LotAliments implements Serializable{
 		super();
 		this.Fournisseur = fournisseur;
 	}
+	public LotAliments(int qteLot, com.miage.projet.entities.Fournisseur fournisseur) {
+		super();
+		this.qteLot = qteLot;
+		Fournisseur = fournisseur;
+	}
+	public LotAliments(int qteLot, com.miage.projet.entities.Fournisseur fournisseur, Set<Aliment> aliments) {
+		super();
+		this.qteLot = qteLot;
+		Fournisseur = fournisseur;
+		Aliments = aliments;
+	}
+	
 
 }

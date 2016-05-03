@@ -15,9 +15,11 @@
 	import com.miage.projet.metier.IAproviMetier;
 	
 	
-	@Controller  //annotation permettant de déclarer le controleur au SPRING
+	@Controller  //annotation permettant de dï¿½clarer le controleur au SPRING
 	@RequestMapping(value="/aprovi") 
-	@SessionAttributes("editedAli") // valeur de notre session de connexion
+	@SessionAttributes({"editedAli","editedLot"}) // valeur de notre session de connexion
+	
+	
 	
 	public class AproviController {
 		
@@ -27,9 +29,7 @@
 	@RequestMapping(value="/index")
 	public String index(Model model){ 
 		
-		model.addAttribute("Ali", new Aliment()); // affectation des différentes entités qui seront utilisés 
-												//par notre controleur
-	
+		model.addAttribute("Ali", new Aliment());
 		model.addAttribute("Alis", metier.listAliments());
 		
 		model.addAttribute("lotAli", new LotAliments());
@@ -38,8 +38,52 @@
 		model.addAttribute("lotsAlis", metier.listAliments());
 		model.addAttribute("fournisseurs", metier.listFournisseur());
 		
+		
 		return"aprovi";
 		}
+	@RequestMapping(value="/generate")
+	public String generate(@Valid LotAliments l,BindingResult bindingResult,Model model){ 
+		if(bindingResult.hasErrors()){
+			
+			model.addAttribute("Ali", new Aliment());
+			model.addAttribute("Alis", metier.listAliments());
+			
+			model.addAttribute("lotAli", new LotAliments());
+			model.addAttribute("lotsAlis", metier.listAliments());
+			
+			model.addAttribute("fournisseur", new Fournisseur());
+			model.addAttribute("fournisseurs", metier.listFournisseur());
+			
+						return "aprovi";
+		}
+		else{
+			
+			if(l.getIdLot()==null) {metier.ajouterLot(l);
+			l.getIdLot();
+			
+				
+				model.addAttribute("lotAli", l);
+					
+			
+			}
+			
+		model.addAttribute("Ali", new Aliment());
+		model.addAttribute("Alis", metier.listAliments());
+		
+		model.addAttribute("lotsAlis", metier.listAliments());
+		
+		model.addAttribute("fournisseur", new Fournisseur());
+		model.addAttribute("fournisseurs", metier.listFournisseur());
+		
+		
+		return"aprovi";
+		
+		}
+		
+	}
+	
+	
+	
 	
 	
 	@RequestMapping("/saveAli")
@@ -75,7 +119,7 @@
 	@RequestMapping(value="/editAli")
 	public String editCat(Long idAliment ,Model model){
 	Aliment a=metier.getAliment(idAliment) ; 
-	model.addAttribute("editedAli", a);
+	//model.addAttribute("editedAli", a);
 	model.addAttribute("Ali",a );
 	model.addAttribute("Alis", metier.listAliments());
 	return "aprovi";}
