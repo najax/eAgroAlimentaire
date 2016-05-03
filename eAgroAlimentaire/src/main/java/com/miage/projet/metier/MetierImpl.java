@@ -152,4 +152,10 @@ public class MetierImpl implements IAdminMetier{
 		return dao.listLotPlats();
 	}
 
+	@Override
+	public void calculerPrixPlat(float indice, Plat p) {
+		// TODO Auto-generated method stub
+		dao.calculerPrixPlat(indice, p);
+	}
+
 }

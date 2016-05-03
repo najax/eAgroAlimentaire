@@ -46,6 +46,7 @@ public void setNbPlats(int nbPlats) {
 }
 public Collection<Plat> getTab_plats() {
 	return tab_plats;
+	
 }
 public void setTab_plats(ArrayList<Plat> tab_plats) {
 	this.tab_plats = tab_plats;

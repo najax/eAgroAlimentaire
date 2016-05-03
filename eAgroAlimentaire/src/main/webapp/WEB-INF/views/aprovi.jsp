@@ -16,11 +16,11 @@
 <td><f:errors path="qteLot"></f:errors> </td> 
 </tr>
 <tr>
+
 <c:if test="${lotAli.qteLot!=0}" >
+
 <c:forEach var="i" begin="1" end="${lotAli.qteLot}" step="1">
     <p>Aliment n°<c:out value="${ i }" /> !</p>
-    
-    
 </c:forEach>
 
 
@@ -32,6 +32,7 @@ Inconnu</c:if>
 </f:form>
 </div>
 <div id="formAli" class="cadre">
+
 <f:form modelAttribute="Ali" action="saveAli" method="post" >
 <table>
 

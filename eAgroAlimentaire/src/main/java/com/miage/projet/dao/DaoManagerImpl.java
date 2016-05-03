@@ -18,6 +18,7 @@ public class DaoManagerImpl implements IDaoManager {
 	
 	 public void modifierPrixPlat(double prix,Plat p){
 		 p.setPrix(prix);
+		 em.merge(p);
 	 }
 
 
@@ -71,7 +72,7 @@ public class DaoManagerImpl implements IDaoManager {
 	public Long ajouterFournisseur(Fournisseur Fo) {
 		// TODO Auto-generated method stub
 		em.persist(Fo);
-		return (long) Fo.getId();
+		return (long) Fo.getIdFour();
 	}
 
 
@@ -172,6 +173,16 @@ public class DaoManagerImpl implements IDaoManager {
 			// TODO Auto-generated method stub
 			Query req=em.createQuery("select p from LotPlats p");
 			return req.getResultList();
+	}
+
+
+	@Override
+	public void calculerPrixPlat(float indice, Plat p) {
+		// TODO Auto-generated method stub
+		
+		p.setPrix(p.getCoutRevient()*indice);
+		em.merge(p);
+		
 	}
 
 }

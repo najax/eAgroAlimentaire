@@ -59,7 +59,9 @@
 		else{
 			
 			if(l.getIdLot()==null) {metier.ajouterLot(l);
-			l.getIdLot();
+			long q=l.getIdLot();
+			
+			
 			
 				
 				model.addAttribute("lotAli", l);
