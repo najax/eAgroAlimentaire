@@ -1,6 +1,10 @@
 	package com.miage.projet.controlleur;
 	
-	import javax.validation.Valid;
+	import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.validation.Valid;
 	
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.*;
@@ -60,10 +64,20 @@
 			
 			if(l.getIdLot()==null) {metier.ajouterLot(l);
 			long q=l.getIdLot();
+			Set<Aliment> lots =  new HashSet<Aliment>();
+			
+			for(int i = 1; i <= l.getQteLot(); i++)
+			{
 			
 			
+			lots.add(new Aliment( "Aliment numero"+Integer.toString(i)));
 			
-				
+			model.addAttribute("Ali"+Integer.toString(i), new Aliment());
+			System.out.println("Ali"+Integer.toString(i));
+			
+			
+			}
+			l.setLotAliments(lots);
 				model.addAttribute("lotAli", l);
 					
 			

@@ -65,6 +65,10 @@ public class Aliment  implements Serializable{
 	public String getNomAliment() {
 		return nomAliment;
 	}
+	public Aliment(String nomAliment) {
+		super();
+		this.nomAliment = nomAliment;
+	}
 	public void setNomAliment(String nomAliment) {
 		this.nomAliment = nomAliment;
 	}

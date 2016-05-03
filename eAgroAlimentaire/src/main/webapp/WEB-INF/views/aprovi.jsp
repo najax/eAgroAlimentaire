@@ -21,6 +21,42 @@
 
 <c:forEach var="i" begin="1" end="${lotAli.qteLot}" step="1">
     <p>Aliment n°<c:out value="${ i }" /> !</p>
+    
+    <f:form modelAttribute="Ali${ i }" action="" method="post" >
+<table>
+
+
+
+<tr>
+<td>Nom Aliment</td>
+<td><f:input path="nomAliment"/></td>
+<td><f:errors path="nomAliment"></f:errors> </td> 
+</tr>
+<tr>
+<td>date Peremption</td>
+<td><f:textarea path="datePeremption"/></td>
+ <td><f:errors path="datePeremption"></f:errors> </td>
+</tr>
+<tr>
+<td>Qte Aliment</td>
+<td><f:textarea path="qteAliment"/></td>
+ <td><f:errors path="qteAliment"></f:errors> </td>
+</tr>
+<tr>
+<td>prix Aliment</td>
+<td><f:textarea path="prixAliment"/></td>
+ <td><f:errors path="prixAliment"></f:errors> </td>
+</tr>
+
+<tr>
+<td><input type="submit" value="AjouterAliment"></td>
+  </tr>
+</table>
+</f:form>
+</div>
+
+    
+    
 </c:forEach>
 
 

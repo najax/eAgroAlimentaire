@@ -38,7 +38,7 @@ public class LotAliments implements Serializable{
 	private Fournisseur Fournisseur;   
 	
 
-	  @OneToMany(mappedBy="LotAliments")
+	  @OneToMany(mappedBy="LotAliments", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	   private Set<Aliment> Aliments=new HashSet<Aliment>();
 
 	public Long getIdLot() {

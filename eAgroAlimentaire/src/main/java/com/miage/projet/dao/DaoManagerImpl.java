@@ -46,6 +46,7 @@ public class DaoManagerImpl implements IDaoManager {
 	@Override
 	public Aliment getAliment(Long idAliment) {
 		// TODO Auto-generated method stub
+		
 		return em.find(Aliment.class, idAliment);
 	}
 
