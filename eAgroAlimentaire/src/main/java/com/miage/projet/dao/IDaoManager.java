@@ -32,7 +32,11 @@ public interface IDaoManager {
 	   public void ajouterUser(User u);
 	   public void modifierPrixPlat(double prix,Plat p);
 	   
+<<<<<<< HEAD
 	   public void calculerPrixPlat(float indice, Plat p);
+=======
+	   public void calculerPrixPlat(float indice,Plat p);
+>>>>>>> origin/master
 	  
 	   
 }

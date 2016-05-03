@@ -179,10 +179,15 @@ public class DaoManagerImpl implements IDaoManager {
 	@Override
 	public void calculerPrixPlat(float indice, Plat p) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		
 		p.setPrix(p.getCoutRevient()*indice);
 		em.merge(p);
 		
+=======
+		p.setPrix(p.getCoutRevient()*indice);
+		em.merge(p);
+>>>>>>> origin/master
 	}
 
 }
