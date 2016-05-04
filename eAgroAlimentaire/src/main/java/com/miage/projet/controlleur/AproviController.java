@@ -124,11 +124,27 @@ import javax.validation.Valid;
 		}
 		}
 
-	@RequestMapping(value="/suppAli")
-	public String suppCat(Long idAliment,Model model){
-	metier.supprimerAliment(idAliment); 
-	model.addAttribute("Ali", new Aliment());
-	model.addAttribute("Alis", metier.listAliments());
+
+	@RequestMapping(value="/saveFour")
+	public String saveCat(@Valid Fournisseur  a,BindingResult bindingResult,Model model){
+		if(bindingResult.hasErrors()){
+			
+			model.addAttribute("fournisseurs", metier.listFournisseur());
+			return "aprovi";
+		}
+		else {metier.ajouterFournisseur(a) ;}
+			
+			model.addAttribute("Ali", new Aliment());
+			model.addAttribute("Alis", metier.listAliments());
+			return "aprovi";
+			}
+		
+	
+	@RequestMapping(value="/suppFour")
+	public String suppCat(Long idFour,Model model){
+	metier.supprimerFournisseur(idFour); 
+	model.addAttribute("Fournisseur", new Fournisseur());
+	model.addAttribute("Fournisseurs", metier.listFournisseur()  );
 	return "aprovi";
 	}
 	

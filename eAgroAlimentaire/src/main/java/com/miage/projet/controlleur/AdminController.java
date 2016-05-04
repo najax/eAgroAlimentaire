@@ -48,6 +48,7 @@ public class AdminController {
 			
 		if(a.getIdAliment()==null) {metier.ajouterAliment(a);}
 		else {metier.modifierAliment(a);}
+		
 		model.addAttribute("Ali", new Aliment());
 		model.addAttribute("Alis", metier.listAliments());
 		return "admin";
@@ -65,7 +66,7 @@ public class AdminController {
 		@RequestMapping(value="/editAli")
 		public String editCat(Long idAliment ,Model model){
 		Aliment a=metier.getAliment(idAliment) ; 
-		//model.addAttribute("editedAli", a);
+		model.addAttribute("editedAli", a);
 		model.addAttribute("Ali",a );
 		model.addAttribute("Alis", metier.listAliments());
 		return "admin";}
