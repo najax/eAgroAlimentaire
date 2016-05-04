@@ -135,7 +135,7 @@ import javax.validation.Valid;
 	@RequestMapping(value="/editAli")
 	public String editCat(Long idAliment ,Model model){
 	Aliment a=metier.getAliment(idAliment) ; 
-	//model.addAttribute("editedAli", a);
+	model.addAttribute("editedAli", a);
 	model.addAttribute("Ali",a );
 	model.addAttribute("Alis", metier.listAliments());
 	return "aprovi";}
